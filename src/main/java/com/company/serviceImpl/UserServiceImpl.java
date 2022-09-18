@@ -1,5 +1,6 @@
 package com.company.serviceImpl;
 
+import com.company.entity.Role;
 import com.company.entity.User;
 import com.company.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import com.company.service.UserService;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
+import static org.graalvm.compiler.phases.common.DeadCodeEliminationPhase.Optionality.Optional;
 
 @Service
 @Transactional
@@ -43,5 +46,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<Long> getIdsOfUserRoles(Long userId) {
+        return userRepository.getIdsOfUserRoles(userId);
     }
 }

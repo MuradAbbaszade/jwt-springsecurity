@@ -1,5 +1,6 @@
 package com.company.service;
 
+import com.company.entity.Role;
 import com.company.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -12,4 +13,6 @@ public interface UserService {
     boolean saveUser(User user);
     void deleteUserById(Long id);
     List<User> getAll();
+    List<Long> getIdsOfUserRoles(Long userId);
+    boolean addRoleToUser(Long roleId,Long userId);
 }

@@ -15,14 +15,13 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="user")
+@Table(name = "user", schema = "public")
 public class User {
     @Id
     @GeneratedValue(strategy = AUTO)
+    @Column(name="id")
     private Long id;
     private String name;
     private String email;
     private String password;
-    @ManyToMany(fetch=EAGER)
-    private Collection<Role> roles = new ArrayList<>();
 }

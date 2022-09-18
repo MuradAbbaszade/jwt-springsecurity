@@ -15,7 +15,7 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="role")
+@Table(name = "role", schema = "public")
 public class Role {
     @Id
     @GeneratedValue(strategy = AUTO)
