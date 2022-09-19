@@ -31,10 +31,15 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByEmail(email));
     }
     @GetMapping("userid={id}")
-    public ResponseEntity<List<Role>> getUserByEmail(@PathVariable("id")Long id){
+    public ResponseEntity<List<Role>> getUserRoles(@PathVariable("id")Long id){
         List<Long> userRoleIds = userService.getIdsOfUserRoles(id);
         List<Role> userRoles = new ArrayList<>();
         userRoleIds.forEach((roleId)->userRoles.add(roleService.getRoleById(roleId)));
         return ResponseEntity.ok(userRoles);
+    }
+    @GetMapping("roleId={roleId}+userId={userId}")
+    public void addRoleToUser(@PathVariable("roleId")Long roleId,
+                              @PathVariable("userId")Long userId){
+        userService.addRoleToUser(roleId,userId);
     }
 }

@@ -25,7 +25,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Long id) {
-        return userRepository.findById(id).get();
+        if(userRepository.findById(id).isPresent()){
+            return userRepository.findById(id).get();
+        }
+        return null;
     }
 
     @Override
@@ -51,5 +54,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Long> getIdsOfUserRoles(Long userId) {
         return userRepository.getIdsOfUserRoles(userId);
+    }
+
+    @Override
+    public void addRoleToUser(Long roleId, Long userId) {
+        userRepository.addRoleToUser(roleId,userId);
     }
 }

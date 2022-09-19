@@ -14,5 +14,5 @@ public interface UserService {
     void deleteUserById(Long id);
     List<User> getAll();
     List<Long> getIdsOfUserRoles(Long userId);
-    boolean addRoleToUser(Long roleId,Long userId);
+    void addRoleToUser(Long roleId,Long userId);
 }
