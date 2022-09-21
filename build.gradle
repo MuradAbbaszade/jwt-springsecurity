@@ -13,6 +13,10 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation('io.jsonwebtoken:jjwt-orgjson:0.11.5') {
+        exclude group: 'org.json', module: 'json'
+    }
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.4.1'
     implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.7.2'
     testCompile group: 'junit', name: 'junit', version: '4.12'
