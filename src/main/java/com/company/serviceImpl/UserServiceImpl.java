@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
     RoleRepository roleRepository;
 
     @Override
