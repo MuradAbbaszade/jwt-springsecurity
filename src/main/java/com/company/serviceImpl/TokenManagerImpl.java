@@ -39,7 +39,7 @@ public class TokenManagerImpl implements TokenManager {
 
     @Override
     public boolean isExpired(String token) {
-        return getClaims(token).getExpiration().before(new Date(System.currentTimeMillis()));
+        return getClaims(token).getExpiration().after(new Date(System.currentTimeMillis()));
     }
 
     public Claims getClaims(String token){
